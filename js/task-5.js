@@ -7,9 +7,12 @@ function getRandomHexColor() {
 const btn = document.querySelector('.change-color');
 btn.addEventListener('click', handleBtn);
 
+const colorSpan = document.querySelector('.color');
+
 function handleBtn(event) {
-  console.log(event);
-  document.body.style.backgroundColor = getRandomHexColor();
+  const color = getRandomHexColor();
+  document.body.style.backgroundColor = color;
+  colorSpan.textContent = color;
 }
 
 btn.style.borderRadius = '8px';

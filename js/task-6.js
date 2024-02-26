@@ -10,8 +10,7 @@ btn.addEventListener('click', handleCreate);
 const boxesContainer = document.querySelector('#boxes');
 
 function createBoxes(amount) {
-  const boxesContainer = document.querySelector('#boxes');
-  boxesContainer.innerHTML = '';
+  destroyBoxes();
 
   let size = 30;
   for (let i = 0; i < amount; i += 1) {
@@ -28,11 +27,9 @@ const inputField = document.querySelector('input[type=number]');
 function handleCreate(event) {
   const inputValue = parseInt(inputField.value, 10);
 
-  if (inputValue >= 1 && inputValue < 100) {
+  if (inputValue >= 1 && inputValue <= 100) {
     createBoxes(inputValue);
     inputField.value = '';
-  } else {
-    !createBoxes(inputValue);
   }
 }
 
@@ -44,12 +41,6 @@ function destroyBoxes() {
   boxesContainer.innerHTML = '';
 }
 
-const controls = document.querySelector('#controls');
-controls.style.display = 'flex';
-controls.style.alignItems = 'center';
-controls.style.justifyContent = 'flex-start';
-controls.style.flexDirection = 'row';
-controls.style.gap = '10px';
 inputField.style.border = '1px solid #808080';
 inputField.style.borderRadius = '8px';
 inputField.style.padding = '8px 12px';
@@ -71,9 +62,3 @@ btnDestroy.style.height = '40px';
 btnDestroy.style.background = '#fF4e4e';
 btnDestroy.style.borderStyle = 'none';
 btnDestroy.style.color = '#fff';
-
-boxesContainer.style.display = 'flex';
-boxesContainer.style.alignItems = 'flex-start';
-boxesContainer.style.justifyContent = 'flex-start';
-boxesContainer.style.flexDirection = 'column';
-boxesContainer.style.gap = '10px';
